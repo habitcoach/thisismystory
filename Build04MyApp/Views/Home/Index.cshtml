@@ -1,0 +1,173 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model IEnumerable<Build04MyApp.Models.Story>
+
+<div id="hero" class="hero-section">
+
+    <div id="hero-carousel" class="hero-carousel carousel carousel-fade slide" data-bs-ride="carousel" data-bs-interval="10000">
+
+        <div class="figure-holder-wrapper">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="figure-holder">
+                    </div><!--//figure-holder-->
+                </div><!--//row-->
+            </div><!--//container-->
+        </div><!--//figure-holder-wrapper-->
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li class="active" data-bs-slide-to="0" data-bs-target="#hero-carousel"></li>
+            <li data-bs-slide-to="1" data-bs-target="#hero-carousel"></li>
+            <li data-bs-slide-to="2" data-bs-target="#hero-carousel"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+
+            <div class="carousel-item item-1 active">
+                <div class="item-content container">
+                    <div class="item-content-inner">
+
+                        @*<h1 class="heading">"We write to taste life twice, in the moment and in retrospect."</h1>*@
+                        <br><h1 class="heading">“It is only by writing, not dreaming about it, that we develop our own style.”</h1>
+
+                    </div><!--//item-content-inner-->
+                </div><!--//item-content-->
+            </div><!--//item-->
+
+            <div class="carousel-item item-2">
+                <div class="item-content container">
+                    <div class="item-content-inner">
+
+
+                        <br><h1 class="heading"> "I'm just glad that God gave me a pen, a paper and the ability to write, cause when I feel like no one hears me, i just write."</h1>
+
+                    </div><!--//item-content-inner-->
+                </div>
+            </div><!--//item-->
+
+            <div class="carousel-item item-3">
+                <div class="item-content container">
+                    <div class="item-content-inner">
+
+                        <br><h1 class="heading">"There is something delicious about the first word of a story. You never quite know where they'll take you."</h1>
+
+                    </div><!--//item-content-inner-->
+                </div>
+            </div><!--//item-->
+        </div><!--//carousel-inner-->
+
+    </div><!--//carousel-->
+</div><!--//hero-->
+
+<div id="about" class="about-section">
+    <div class="container text-center">
+
+
+        <div class="items-wrapper row align-content-between align-middle">
+
+            <div class="item  align-content-center">
+                <div class="item-inner align-content-center">
+                    <div class="figure-holder">
+                        <img class="figure-image" src="assets/images/Avatar.png">
+                    </div><!--//figure-holder-->
+                    <h3 class="item-title">About Me</h3>
+                    <div class="item-desc mb-3">
+                        Hi!, I am the type of person who loves to speak his mind, albeit when it's uncalled for.<i class="fa fa-face-smile"></i>
+                    </div><!--//item-desc-->
+                    <a class="btn btn-primary" asp-action="About">Find out more</a>
+                </div><!--//item-inner-->
+            </div><!--//item-->
+
+        </div><!--//items-wrapper-->
+    </div><!--//container-->
+</div><!--//about-section-->
+
+<div id="testimonials" class="testimonials-section">
+    <div class="container">
+        <h1 style="font-family:Calibri" class="section-title text-center">STORIES</h1>
+        @foreach (var item in Model)
+        {
+            @if (item.Id % 2 != 0)
+
+            {
+                <div class="item mx-auto">
+                    <div class="profile-holder">
+                        <img class="profile-image" src="@item.Image" alt="profile">
+                    </div>
+                    <div class="quote-holder">
+                        <blockquote class="quote">
+                            <span class="name"></span>
+                            <span style="font-size:large" class="meta">@Html.DisplayFor(modelitem => item.Title)</span>
+
+                            <div class="quote-source">
+                                <p>@Html.DisplayFor(modelitem => item.ShortDescription)</p>
+                            </div><!--//quote-source-->
+
+                            <a class="btn btn-inverse btn-outline-dark btn-sm float-sm-end" asp-controller="Home" asp-action="StoryDescription" asp-route-id="@item.Id">more</a><br>
+
+
+                        </blockquote>
+                    </div><!--//quote-holder-->
+                </div>
+
+                <!--//item-->
+            }
+
+            else if (item.Id % 2 == 0)
+            {
+                <div class="item item-reversed mx-auto">
+                    <div class="profile-holder">
+                        <img class="profile-image" src="@item.Image" alt="profile">
+                    </div>
+                    <div class="quote-holder">
+                        <blockquote class="quote">
+                            <span style="font-size:large" class="meta">@Html.DisplayFor(modelitem => item.Title)</span>
+
+                            <div class="quote-source">
+                                <span class="name"></span>
+                                <p>@Html.DisplayFor(modelitem => item.ShortDescription)</p>
+                            </div><!--//quote-source-->
+                            <div class="align-content-sm-end">
+                                <a class="btn btn-inverse btn-outline-dark " asp-controller="Home" asp-action="StoryDescription" asp-route-id="@item.Id">more</a><br>
+                            </div>
+                        </blockquote>
+                    </div><!--//quote-holder-->
+                </div>
+
+                <!--//item-->
+            }
+        }
+
+
+    </div><!--//container-->
+</div><!--//testimonials-->
+
+<div id="team" class="team-section ">
+    <div class="container text-center">
+        <h2 class="section-title"><b>Let the world read your "THOUGHTS"</b></h2><br>
+        <div class="story">
+            <p>
+                “Writing, the art of communicating thoughts to the mind through the eye, is the great invention of the world...enabling us to converse with the dead, the absent, and the unborn, at all distances of time and space.”
+                <b> Let your thoughts through words INSPIRE the world.</b>
+            </p>
+        </div>
+        <a class="btn btn-primary" asp-action="ClientStoryAction">Click here to publish your story</a>
+
+    </div>
+</div>
+
+
+<div id="contact" class="contact-section">
+    <div class="container text-center">
+        <h2 class="section-title">Connect</h2>
+        <div class="contact-content">
+            <p>There is nothing more exciting than meeting new people, hearing their stories and being INSPIRED.</p>
+
+        </div>
+        <a class="btn btn-cta btn-primary" href="https://www.instagram.com/human_being.7/">Get in Touch</a>
+
+    </div><!--//container-->
+</div><!--//contact-section-->

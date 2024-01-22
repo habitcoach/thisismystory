@@ -1,0 +1,114 @@
+﻿@{
+    Layout = "_Layout02StoryDes";
+}
+
+
+@model Build04MyApp.Models.Story
+
+
+
+
+
+
+    <div class="wrap full-wrap">
+        <div class="main-wrap">
+            <section class="main main-archive">
+                <div class="loop">
+
+
+                    <article class="post format-gallery post_format-post-format-gallery">
+
+
+                        <a href="#"
+                           title="@Model.Title">
+
+                        </a>
+
+                        <div class="inner">
+
+                            <h2 class="entry-title">
+                                <a href="#"
+                                   title="@Model.Title">
+                                    @Model.Title
+                                </a>
+                            </h2>
+                            <ul class="meta top">
+                                <li class="time">
+                                    <a href="#"
+                                       title="@Model.Title">
+                                        <time>
+
+                                            <script>
+                                                date = new Date().toLocaleDateString();
+                                                document.write(date);
+                                            </script>
+
+                                        </time>
+                                    </a>
+                                </li>
+
+                                <li class="comments post-tags">
+                                    <a href="#">
+                                       @Model.Genre
+                                    </a>
+                                </li>
+
+                                <li class="author-m post-tags">
+                                    By <span class="vcard author post-author">
+                                        <span class="fn">
+                                            <a href="#"
+                                               title="Posts by Ranjith" rel="author">Ranjith</a>
+                                        </span>
+                                    </span>
+                                </li>
+
+                            </ul>
+                            <div class="post-content" style="text-align:justify">
+
+                                <div class="wrapper row3">
+
+                                    <!-- main body -->
+                                    <!-- ################################################################################################ -->
+
+                                    <p style="white-space:pre-wrap">@Model.Description</p>
+
+                                    <!-- / main body -->
+                                    <div class="clear"></div>
+
+                                </div>
+
+                                <blockquote><p>@Model.Quote<cite>Ranjith kumar</cite></p></blockquote>
+
+                            </div>
+
+
+
+
+                            <ul class="meta bottom">
+
+
+                                <li class="cat post-tags">
+                                    Thank you for reading.
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+                    </article>
+
+
+                </div>
+
+
+            </section>
+
+
+        </div><!-- /main-wrap -->
+
+
+    </div><!-- /wrap -->
+
+
+    
+
